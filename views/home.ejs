@@ -2,5 +2,11 @@
 <div class="jumbotron">
     <h1>Daily Journal</h1>
     <p><%= homeContent %> </p>
+    <% function truncate(source, size) { %>
+       <% return source.length > size ? source.slice(0, size - 1) + " …" : source; } %>
+     <% posts.forEach((post)=>{ %>
+    <h1><%= post.postTitle%></h1>
+    <p><%= truncate(post.postContent, 100)%> <a href="/post/<%=post.postTitle%>">Read More</a></p>
+    <% }); %>
 </div>
 <%- include("partials/footer"); -%>
