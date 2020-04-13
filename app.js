@@ -29,7 +29,6 @@ app.get("/compose", (req, res)=>{
   res.render("compose", {});
 });
 // use express route params (req.params) to create dynamic routes.
-
 app.get("/post/:title", (req, res)=>{
     const requestedTitle = req.params.title;
     posts.forEach((post)=>{
@@ -37,11 +36,10 @@ app.get("/post/:title", (req, res)=>{
       // use lodash to match any cases that might be typed by the user.
       if (_.lowerCase(storedTitle) === _.lowerCase(requestedTitle)){  
         //render the post in the post template if the post title exists
-        res.render('post', {postTitle: post.postTitle, postContent: post.postContent});
+        res.render('post', {postTitle: post.postTitle, postContent: post.postContent});      
       }           
     });   
-    res.redirect("/"); 
-    
+    res.redirect("/");     
 });
 
 app.post("/compose", (req, res)=>{
