@@ -105,9 +105,11 @@ app.post("/compose", async (req, res)=>{
     postTitle,
     postContent
   });
- await post.save();
+ await post.save((err)=>{
+  if (err) console.log(err);
+  else res.redirect("/");
+ }); 
   
-  res.redirect("/");
 });
 
 app.listen(3000, function() {
