@@ -6,7 +6,7 @@
        <% return source.length > size ? source.slice(0, size - 1) + " …" : source; } %>
      <% posts.forEach((post)=>{ %>
     <h1><%= post.postTitle%></h1>
-    <p><%= truncate(post.postContent, 100)%> <a href="/post/<%=post._id%>">Read More</a></p>
+    <p><%= truncate(post.postContent, 100)%> <a href="/post/<%= post._id %>">Read More</a></p>
     <% }); %>
 </div>
 <%- include("partials/footer"); -%>
